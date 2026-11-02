@@ -1,0 +1,770 @@
+/* =========================================
+   SAITTI WEBSITE
+   DARK ELEGANT — FINAL STYLESHEET
+   HTML5 | CSS3 | BOOTSTRAP 5.3.3
+========================================= */
+
+
+/* =========================================
+   1. ROOT VARIABLES & GENERAL
+========================================= */
+
+:root {
+    --dark: #101010;
+    --dark-soft: #151515;
+    --dark-card: #1b1b1b;
+
+    /* Emas: hanya untuk tombol, garis, dan border (BUKAN teks) */
+    --gold: #c9a66b;
+    --gold-light: #e1c18b;
+
+    /* Warna teks */
+    --white: #f5f5f5;
+    --gray: #a5a5a5;          /* teks isi / deskripsi */
+    --gray-accent: #d0d0d0;   /* pengganti teks emas (judul sorot, label, ikon) */
+    --gray-accent-hover: #ffffff;
+
+    --border: #303030;
+
+    --font-heading: 'Roboto Slab', serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-label: 'Barlow Condensed', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    background: var(--dark);
+    color: var(--white);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+.section-padding {
+    padding: 100px 0;
+}
+
+
+/* =========================================
+   2. NAVBAR
+========================================= */
+
+.navbar {
+    padding: 14px 0;
+
+    background: rgba(12, 12, 12, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    transition: background .3s ease, padding .3s ease;
+}
+
+.navbar.navbar-scrolled {
+    background: rgba(8, 8, 8, 0.98);
+    padding: 10px 0;
+}
+
+/* BRAND */
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: var(--gray-accent) !important;
+
+    font-family: var(--font-heading);
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 1px;
+
+    text-decoration: none;
+}
+
+.brand-logo img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.brand-logo:hover {
+    color: var(--gray-accent-hover) !important;
+}
+
+.brand-dot {
+    color: var(--gray-accent);
+}
+
+/* LINKS */
+
+.navbar-nav {
+    align-items: center;
+}
+
+.nav-link {
+    margin-left: 20px;
+
+    color: #dddddd !important;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: color .3s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    color: var(--gray-accent-hover) !important;
+}
+
+/* TOGGLER */
+
+.navbar-toggler {
+    border-color: var(--gray);
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 2px rgba(208, 208, 208, .3);
+}
+
+
+/* =========================================
+   3. HERO
+========================================= */
+
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    aspect-ratio: 16 / 9;      /* tinggi mengikuti lebar, sesuai rasio foto */
+
+    padding: 40px 0 80px;      /* tidak perlu 125px lagi karena navbar sudah di luar hero */
+
+    background-color: #080808;
+    background-image: url('../assets/images/background-saitti.jpeg');
+    background-size: cover;    /* foto memenuhi area tanpa ruang kosong */
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, .82) 0%,
+        rgba(0, 0, 0, .55) 50%,
+        rgba(0, 0, 0, .25) 100%
+    );
+
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-brand {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    margin-bottom: 25px;
+}
+
+.hero-logo {
+    display: block;
+    width: 145px;
+    height: 145px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.hero-subtitle {
+    margin-bottom: 15px;
+
+    color: var(--gray-accent);
+
+    font-family: var(--font-label);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 5px;
+}
+
+.hero h1 {
+    margin: 0;
+
+    color: var(--white);
+
+    font-family: var(--font-heading);
+    font-size: clamp(48px, 8vw, 105px);
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: 1px;
+}
+
+.hero h1 span {
+    color: var(--gray-accent);
+}
+
+.hero-description {
+    max-width: 500px;
+    margin-top: 20px;
+
+    color: #eeeeee;
+
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* BUTTON (latar emas, teks gelap) */
+
+.btn-gold {
+    display: inline-block;
+
+    padding: 15px 28px;
+
+    border: 1px solid var(--gold);
+    border-radius: 0;
+
+    background: var(--gold);
+    color: #111111;
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    transition: all .3s ease;
+}
+
+.btn-gold:hover {
+    background: var(--gold-light);
+    border-color: var(--gold-light);
+    color: #111111;
+    transform: translateY(-3px);
+}
+
+.hero-bottom {
+    position: absolute;
+    bottom: 30px;
+    left: 5%;
+    z-index: 2;
+
+    color: #dddddd;
+
+    font-family: var(--font-label);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 4px;
+}
+
+
+/* =========================================
+   4. ABOUT
+========================================= */
+
+.about-image {
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    background: #222222;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(30%);
+    transition: transform .6s ease;
+}
+
+.about-image:hover img {
+    transform: scale(1.06);
+}
+
+.section-label {
+    margin-bottom: 12px;
+
+    color: var(--gray-accent);
+
+    font-family: var(--font-label);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.section-title {
+    margin: 15px 0 25px;
+
+    color: var(--white);
+
+    font-family: var(--font-heading);
+    font-size: clamp(30px, 5vw, 47px);
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.section-title span {
+    color: var(--gray-accent);
+}
+
+.section-description {
+    margin-bottom: 15px;
+
+    color: var(--gray);
+
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.about-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-top: 35px;
+}
+
+.about-info h3 {
+    margin-bottom: 5px;
+
+    color: var(--gray-accent);
+
+    font-family: var(--font-heading);
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.about-info p {
+    color: var(--gray);
+    font-size: 12px;
+}
+
+
+/* =========================================
+   5. MEMORIES
+========================================= */
+
+.memories-section {
+    background: var(--dark-soft);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.section-heading {
+    margin-bottom: 55px;
+}
+
+.memory-card {
+    position: relative;
+
+    height: 100%;
+    min-height: 230px;
+    padding: 40px 30px;
+
+    background: var(--dark-card);
+    border: 1px solid var(--border);
+
+    transition: transform .3s ease, border-color .3s ease;
+}
+
+.memory-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--gold);
+}
+
+.memory-number {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+
+    color: #666666;
+    font-size: 13px;
+}
+
+.memory-icon {
+    display: block;
+    margin-bottom: 30px;
+
+    color: var(--gray-accent);
+    font-size: 35px;
+}
+
+.memory-card h3 {
+    margin-bottom: 15px;
+
+    color: var(--white);
+
+    font-family: var(--font-heading);
+    font-size: 20px;
+}
+
+.memory-card p {
+    color: var(--gray);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   6. GALLERY
+========================================= */
+
+.gallery-caption {
+    color: var(--gray);
+    font-size: 13px;
+}
+
+.gallery-item {
+    position: relative;
+
+    display: block;
+    width: 100%;
+    height: 280px;
+    padding: 0;
+
+    overflow: hidden;
+
+    border: none;
+    background: #222222;
+    color: inherit;
+    text-align: left;
+
+    cursor: pointer;
+}
+
+.gallery-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(.78);
+    transition: transform .6s ease, filter .4s ease;
+}
+
+.gallery-item:hover img,
+.gallery-item:focus-visible img {
+    transform: scale(1.08);
+    filter: brightness(.48);
+}
+
+.gallery-item:focus-visible {
+    outline: 2px solid var(--gray-accent);
+    outline-offset: 2px;
+}
+
+.gallery-overlay {
+    position: absolute;
+    inset: auto 0 0 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 20px;
+
+    color: var(--white);
+
+    font-family: var(--font-label);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    opacity: 0;
+    transition: opacity .3s ease;
+}
+
+.gallery-item:hover .gallery-overlay,
+.gallery-item:focus-visible .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay i {
+    color: var(--gray-accent);
+    font-size: 20px;
+}
+
+
+/* =========================================
+   7. PHOTO MODAL
+========================================= */
+
+.photo-modal {
+    background: var(--dark-card);
+    color: var(--white);
+    border: 1px solid #444444;
+    border-radius: 0;
+}
+
+.photo-modal .modal-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+.photo-modal .modal-body img {
+    display: block;
+    width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+}
+
+
+/* =========================================
+   8. QUOTE
+========================================= */
+
+.quote-section {
+    padding: 100px 20px;
+    background: #171717;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.quote-icon {
+    color: var(--gray-accent);
+    font-size: 50px;
+}
+
+.quote-section h2 {
+    margin: 20px 0;
+
+    color: var(--white);
+
+    font-family: var(--font-heading);
+    font-size: clamp(27px, 5vw, 45px);
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.quote-section h2 span {
+    color: var(--gray-accent);
+}
+
+.quote-section p {
+    color: var(--gray);
+
+    font-family: var(--font-label);
+    font-size: 13px;
+    letter-spacing: 4px;
+}
+
+
+/* =========================================
+   9. FOOTER
+========================================= */
+
+.footer {
+    padding: 60px 0 30px;
+    background: #0b0b0b;
+}
+
+.footer h3 {
+    color: var(--white);
+
+    font-family: var(--font-heading);
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.footer h3 span {
+    color: var(--gray-accent);
+}
+
+.footer p,
+.footer small {
+    color: var(--gray);
+    font-size: 12px;
+}
+
+.footer-line {
+    width: 100%;
+    height: 1px;
+    margin: 30px 0;
+    background: var(--border);
+}
+
+
+/* =========================================
+   10. TABLET
+========================================= */
+
+@media (max-width: 991.98px) {
+
+    .navbar-nav {
+        align-items: flex-start;
+        padding-top: 15px;
+    }
+
+    .nav-link {
+        margin-left: 0;
+        padding: 10px 0;
+    }
+
+    .hero h1 {
+        font-size: clamp(45px, 8vw, 75px);
+    }
+
+    .hero-logo {
+        width: 110px;
+        height: 110px;
+    }
+
+    .section-padding {
+        padding: 80px 0;
+    }
+}
+
+
+/* =========================================
+   11. MOBILE
+========================================= */
+
+@media (max-width: 767.98px) {
+
+    .section-padding {
+        padding: 70px 0;
+    }
+
+    .hero {
+        aspect-ratio: auto;
+        min-height: 85vh;
+        padding: 60px 0 100px;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .hero-overlay {
+        background: linear-gradient(90deg, rgba(0,0,0,.82), rgba(0,0,0,.58));
+    }
+
+    .hero-brand {
+        gap: 15px;
+    }
+
+    .hero-logo {
+        width: 85px;
+        height: 85px;
+    }
+
+    .hero-subtitle {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .hero h1 {
+        font-size: clamp(34px, 9vw, 55px);
+        line-height: 1.2;
+    }
+
+    .hero-description {
+        font-size: 13px;
+    }
+
+    .hero-bottom {
+        bottom: 22px;
+        left: 20px;
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .about-image {
+    height: 520px;
+
+    }
+
+
+    .about-info {
+        gap: 25px;
+    }
+
+    .memory-card {
+        min-height: 210px;
+    }
+
+    .gallery-item {
+        height: 240px;
+    }
+
+    .gallery-overlay {
+        opacity: 1;
+        padding: 15px;
+    }
+
+    .quote-section {
+        padding: 70px 15px;
+    }
+}
+
+
+/* =========================================
+   12. SMALL MOBILE
+========================================= */
+
+@media (max-width: 420px) {
+
+    .brand-logo {
+        gap: 8px;
+        font-size: 20px;
+    }
+
+    .brand-logo img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .hero-brand {
+        gap: 12px;
+    }
+
+    .hero-logo {
+        width: 68px;
+        height: 68px;
+    }
+
+    .hero h1 {
+        font-size: 33px;
+    }
+
+    .hero-subtitle {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+    .hero-description {
+        font-size: 12px;
+    }
+
+    .btn-gold {
+        padding: 12px 20px;
+        font-size: 11px;
+    }
+
+    .about-info {
+        gap: 20px;
+    }
+
+    .gallery-item {
+        height: 220px;
+    }
+}
